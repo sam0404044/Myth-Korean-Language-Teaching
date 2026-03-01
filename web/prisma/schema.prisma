@@ -1,0 +1,147 @@
+// 神話韓語 - 依規格 5.網站技術架構圖
+// 正式：MySQL (Linode Managed DB) / 開發：MySQL (XAMPP 本機)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// 會員（前台登入）
+model User {
+  id           Int       @id @default(autoincrement())
+  email        String    @unique
+  passwordHash String    @map("password_hash")
+  name         String?
+  status       String    @default("active") // active | suspended
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
+  orders       Order[]
+  subscriptions Subscription[]
+}
+
+// 後台管理者
+model Admin {
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  passwordHash String   @map("password_hash")
+  role         String   @default("admin") // admin | editor
+  createdAt    DateTime @default(now()) @map("created_at")
+}
+
+// 課程（規格：課程管理、章節/單元、Mux 影片）
+model Course {
+  id            Int      @id @default(autoincrement())
+  title         String
+  description   String?  @db.Text
+  price         Int      // NT$
+  priceOriginal Int?     @map("price_original")
+  category      String   // beginner | grammar | speaking | exam
+  published     Boolean  @default(true)
+  sortOrder     Int      @default(0) @map("sort_order")
+  hasTrial      Boolean  @default(false) @map("has_trial")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+  chapters      CourseChapter[]
+  instructors   InstructorCourse[]
+}
+
+// 章節/單元（綁定 Mux Playback ID）
+model CourseChapter {
+  id             Int     @id @default(autoincrement())
+  courseId       Int     @map("course_id")
+  title          String
+  muxPlaybackId  String? @map("mux_playback_id")
+  sortOrder      Int     @default(0) @map("sort_order")
+  course         Course  @relation(fields: [courseId], references: [id], onDelete: Cascade)
+}
+
+// 訂閱方案（規格：方案管理）
+model Plan {
+  id          Int      @id @default(autoincrement())
+  name        String
+  price       Int      // NT$
+  period      String   // month | quarter | year
+  description String?  @db.Text
+  published   Boolean  @default(true)
+  sortOrder   Int      @default(0) @map("sort_order")
+  orders      Order[]
+  subscriptions Subscription[]
+}
+
+// 訂單（金流：藍新/綠界 Webhook 更新狀態）
+model Order {
+  id        Int      @id @default(autoincrement())
+  orderNo   String   @unique @map("order_no") // 例 ORD001
+  userId    Int      @map("user_id")
+  planId    Int      @map("plan_id")
+  amount    Int      // NT$
+  status    String   @default("pending") // pending | paid | failed | refunded
+  paidAt    DateTime? @map("paid_at")
+  createdAt DateTime @default(now()) @map("created_at")
+  user      User     @relation(fields: [userId], references: [id])
+  plan      Plan     @relation(fields: [planId], references: [id])
+}
+
+// 訂閱狀態（生效/到期/取消）
+model Subscription {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @map("user_id")
+  planId    Int      @map("plan_id")
+  startAt   DateTime @map("start_at")
+  endAt     DateTime @map("end_at")
+  status    String   @default("active") // active | expired | cancelled
+  user      User     @relation(fields: [userId], references: [id])
+  plan      Plan     @relation(fields: [planId], references: [id])
+}
+
+// 文章/最新訊息（規格：文章管理）
+model Article {
+  id        Int      @id @default(autoincrement())
+  title     String
+  excerpt   String?  @db.Text
+  content   String?  @db.LongText
+  category  String?
+  date      DateTime @db.Date
+  published Boolean  @default(true)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+}
+
+// 師資（規格：師資管理、授課課程綁定）
+model Instructor {
+  id        Int      @id @default(autoincrement())
+  name      String
+  title     String?
+  bio       String?  @db.Text
+  avatarUrl String?  @map("avatar_url")
+  published Boolean  @default(true)
+  sortOrder Int      @default(0) @map("sort_order")
+  courses   InstructorCourse[]
+}
+
+model InstructorCourse {
+  instructorId Int @map("instructor_id")
+  courseId     Int @map("course_id")
+  instructor   Instructor @relation(fields: [instructorId], references: [id], onDelete: Cascade)
+  course       Course     @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  @@id([instructorId, courseId])
+}
+
+// 學員見證（規格：學員見證管理、首頁摘要）
+model Testimonial {
+  id             Int     @id @default(autoincrement())
+  name           String
+  role           String?
+  industry       String?
+  quote          String  @db.Text
+  quoteShort     String? @map("quote_short") @db.Text
+  avatarUrl      String? @map("avatar_url")
+  courseRecommend String? @map("course_recommend")
+  courseId      Int?     @map("course_id")
+  showOnHome    Boolean  @default(false) @map("show_on_home")
+  sortOrder     Int      @default(0) @map("sort_order")
+}

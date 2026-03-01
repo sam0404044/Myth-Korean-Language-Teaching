@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>最新消息 - 神話韓語</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">神話韓語</a>
+      <div class="search-wrap search-wrap-mobile">
+        <input type="search" class="search-input" placeholder="搜尋課程、文章" aria-label="搜尋" />
+        <button type="button" class="search-btn" aria-label="搜尋">🔍</button>
+      </div>
+      <nav class="nav-menu">
+        <ul class="nav-list nav-before-login">
+          <li><a href="login.html">會員登入</a></li>
+          <li><a href="about.html">關於我們</a></li>
+          <li><a href="courses.html">課程列表</a></li>
+          <li><a href="news.html">最新消息</a></li>
+          <li><a href="testimonials.html">學員見證</a></li>
+        </ul>
+        <div class="nav-actions">
+          <div class="search-wrap"><input type="search" class="search-input" placeholder="搜尋課程、文章" /><button type="button" class="search-btn">🔍</button></div>
+          <a href="cart.html" class="cart-link">🛒</a>
+        </div>
+      </nav>
+      <button type="button" class="mobile-menu-btn" aria-label="選單">☰</button>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="section">
+      <div class="container">
+        <h1 class="page-title section-title--green">最新消息</h1>
+        <p class="section-desc">教學文章、FB/IG 文章；分類與標籤由後台提供。</p>
+        <div class="article-grid">
+          <article class="article-card">
+            <a href="article.html?id=1"><div class="article-placeholder">1</div><h3>文章標題 1</h3><p class="article-meta">日期</p></a>
+          </article>
+          <article class="article-card">
+            <a href="article.html?id=2"><div class="article-placeholder">2</div><h3>文章標題 2</h3><p class="article-meta">日期</p></a>
+          </article>
+          <article class="article-card">
+            <a href="article.html?id=3"><div class="article-placeholder">3</div><h3>文章標題 3</h3><p class="article-meta">日期</p></a>
+          </article>
+          <article class="article-card">
+            <a href="article.html?id=4"><div class="article-placeholder">4</div><h3>文章標題 4</h3><p class="article-meta">日期</p></a>
+          </article>
+          <article class="article-card">
+            <a href="article.html?id=5"><div class="article-placeholder">5</div><h3>文章標題 5</h3><p class="article-meta">日期</p></a>
+          </article>
+          <article class="article-card">
+            <a href="article.html?id=6"><div class="article-placeholder">6</div><h3>文章標題 6</h3><p class="article-meta">日期</p></a>
+          </article>
+        </div>
+        <p class="section-hint">文章列表與內頁需由後台/API 提供。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner container">
+      <div class="footer-top">
+        <div class="footer-links"><a href="#" class="social-link">Facebook</a><a href="#" class="social-link">Instagram</a></div>
+        <button type="button" class="footer-legal-btn" data-modal="legal">服務使用條款及隱私權聲明</button>
+      </div>
+      <div class="footer-info">
+        <p>@colajp.com</p>
+        <p>電話：075507717</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="modal-legal" class="modal" role="dialog" aria-labelledby="modal-legal-title" hidden>
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modal-legal-title">服務使用條款及隱私權聲明</h2>
+        <button type="button" class="modal-close" aria-label="關閉">×</button>
+      </div>
+      <div class="modal-body">
+        <nav class="legal-nav">
+          <a href="#terms">網站服務使用條款</a>
+          <a href="#privacy">隱私權政策</a>
+          <a href="#trade">用戶交易條款</a>
+          <a href="#refund">退費及退換貨須知</a>
+        </nav>
+        <div class="legal-content"><p>此處可放置各條款內容。</p></div>
+      </div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
