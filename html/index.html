@@ -93,10 +93,10 @@
         <picture class="hero-bg">
           <source
             media="(max-width: 768px)"
-            srcset="assets/images/hero/hero-kdog-landing-mobile.png"
+            srcset="../assets/images/hero/hero-kdog-landing-mobile.png"
           />
           <img
-            src="assets/images/hero/hero-kdog-landing-desktop.png"
+            src="../assets/images/hero/hero-kdog-landing-desktop.png"
             alt=""
             width="1920"
             height="1080"
@@ -104,7 +104,7 @@
           />
         </picture>
         <div class="hero-overlay hero-overlay--light">
-          <h1>神話韓語</h1>
+          <h1>神話韓語 <span style="color: red;">!</span></h1>
           <p>與韓語一起，從這裡開始</p>
           <div class="hero-cta">
             <a href="#news" class="btn btn-hero">最新消息</a>
@@ -115,13 +115,52 @@
         </div>
       </section>
 
-      <!-- 課程分類（四張方卡：入門／文法／會話／檢定） -->
+      <!-- Hero 與熱門課程之間的波浪分隔（往上重疊，並向下吃 1px 消除白線） -->
+      <svg
+        class="wave-divider wave-divider--overlap-top wave-divider--offset-down"
+        width="100%"
+        height="60px"
+        viewBox="0 0 100 50"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient
+            id="grad-hotcourses-top"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="0%"
+          >
+            <stop offset="0%" stop-color="#7c68b6" />
+            <stop offset="35%" stop-color="#9e63d2" />
+            <stop offset="70%" stop-color="#ff8ac6" />
+            <stop offset="100%" stop-color="#ffd1f2" />
+          </linearGradient>
+        </defs>
+        <path
+          d="M0,10 
+             Q 25,45 50,35 
+             Q 75,25 100,10 
+             L100,50 
+             L0,50 
+             Z"
+          fill="url(#grad-hotcourses-top)"
+        />
+      </svg>
+
+      <!-- 熱門課程（四張方卡：入門／文法／會話／檢定） -->
       <section class="section section-courses section--pastel" id="courses">
         <div class="container">
-          <h2 class="section-title section-title--green">精選課程</h2>
+          <h2
+            class="section-title section-title--green section-title--decor section-title--on-gradient"
+            data-en="인기 강의"
+          >
+            熱門課程
+          </h2>
           <div class="course-category-grid">
             <a
-              href="#courses-beginner"
+              href="#courses-pronunciation"
               class="course-category-card course-category-card--coral"
             >
               <div
@@ -130,10 +169,10 @@
                   background-image: url(&quot;assets/images/courses/beginner.png&quot;);
                 "
               ></div>
-              <span class="course-category-card__label">入門</span>
+              <span class="course-category-card__label">發音</span>
             </a>
             <a
-              href="#courses-grammar"
+              href="#courses-beginner"
               class="course-category-card course-category-card--purple"
             >
               <div
@@ -142,10 +181,10 @@
                   background-image: url(&quot;assets/images/courses/grammar.png&quot;);
                 "
               ></div>
-              <span class="course-category-card__label">文法</span>
+              <span class="course-category-card__label">初級</span>
             </a>
             <a
-              href="#courses-speaking"
+              href="#courses-intermediate"
               class="course-category-card course-category-card--peach"
             >
               <div
@@ -154,10 +193,10 @@
                   background-image: url(&quot;assets/images/courses/speaking.png&quot;);
                 "
               ></div>
-              <span class="course-category-card__label">會話</span>
+              <span class="course-category-card__label">中級</span>
             </a>
             <a
-              href="#courses-exam"
+              href="#courses-advanced"
               class="course-category-card course-category-card--mint"
             >
               <div
@@ -166,7 +205,19 @@
                   background-image: url(&quot;assets/images/courses/exam.png&quot;);
                 "
               ></div>
-              <span class="course-category-card__label">檢定</span>
+              <span class="course-category-card__label">高級</span>
+            </a>
+            <a
+              href="#courses-topics"
+              class="course-category-card course-category-card--coral"
+            >
+              <div
+                class="course-category-card__img"
+                style="
+                  background-image: url(&quot;assets/images/courses/beginner.png&quot;);
+                "
+              ></div>
+              <span class="course-category-card__label">主題課程</span>
             </a>
           </div>
           <div class="course-grid">
@@ -183,13 +234,34 @@
         </div>
       </section>
 
+      <!-- 熱門課程與最新消息之間的波浪分隔 -->
+      <svg
+        class="wave-divider"
+        width="100%"
+        height="60px"
+        viewBox="0 0 100 50"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0,40 
+         Q 25,5 50,15 
+         Q 75,25 100,40 
+         L100,0 
+         L0,0 
+         Z"
+          fill="url(#grad-hotcourses-top)"
+        />
+      </svg>
+
       <!-- 最新消息（寬卡＋插畫） -->
       <section class="section section-news" id="news">
         <div class="container">
           <a href="#news-full" class="news-card">
             <div class="news-card__text">
               <h2
-                class="section-title section-title--green section-title--left"
+                class="section-title section-title--green section-title--left section-title--decor"
+                data-en="Latest News"
               >
                 最新消息
               </h2>
@@ -227,68 +299,148 @@
         </div>
       </section>
 
+      <!-- 最新消息與學員見證之間的波浪分隔 -->
+      <svg
+        class="wave-divider wave-divider--offset-down"
+        width="100%"
+        height="60px"
+        viewBox="0 0 100 50"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient
+            id="grad-testimonials"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="0%"
+          >
+            <stop offset="0%" stop-color="#7c68b6" />
+            <stop offset="35%" stop-color="#9e63d2" />
+            <stop offset="70%" stop-color="#ff8ac6" />
+            <stop offset="100%" stop-color="#ffd1f2" />
+          </linearGradient>
+        </defs>
+        <path
+          d="M0,10 
+             Q 25,45 50,35 
+             Q 75,25 100,10 
+             L100,50 
+             L0,50 
+             Z"
+          fill="url(#grad-testimonials)"
+        />
+      </svg>
+
       <!-- 學員見證（圓形頭像） -->
       <section
-        class="section section-testimonials section--pastel"
+        class="section section-testimonials section--wave-block"
         id="testimonials"
       >
-        <div class="container">
-          <h2 class="section-title section-title--green">學員見證</h2>
-          <div class="testimonial-grid">
-            <div class="testimonial-card">
-              <div
-                class="testimonial-card__avatar"
-                style="
-                  background-image: url(&quot;assets/images/testimonials/avatar-01.png&quot;);
-                "
-              ></div>
-              <p>學員見證 1</p>
-            </div>
-            <div class="testimonial-card">
-              <div
-                class="testimonial-card__avatar"
-                style="
-                  background-image: url(&quot;assets/images/testimonials/avatar-02.png&quot;);
-                "
-              ></div>
-              <p>學員見證 2</p>
-            </div>
-            <div class="testimonial-card">
-              <div
-                class="testimonial-card__avatar"
-                style="
-                  background-image: url(&quot;assets/images/testimonials/avatar-03.png&quot;);
-                "
-              ></div>
-              <p>學員見證 3</p>
-            </div>
-            <div class="testimonial-card">
-              <div
-                class="testimonial-card__avatar testimonial-card__avatar--placeholder"
-              >
-                4
+        <div class="section-wave-panel section-wave-panel--dark">
+          <div class="section-wave-panel__inner container">
+            <h2
+              class="section-title section-title--green section-title--decor section-title--on-gradient"
+              data-en="수강 후기"
+            >
+              學員見證
+            </h2>
+            <div class="testimonial-grid">
+              <div class="testimonial-card">
+                <div
+                  class="testimonial-card__avatar"
+                  style="
+                    background-image: url(&quot;../assets/images/testimonials/avatar-01.png&quot;);
+                  "
+                ></div>
+                <p>學員見證 1</p>
               </div>
-              <p>學員見證 4</p>
-            </div>
-            <div class="testimonial-card">
-              <div
-                class="testimonial-card__avatar testimonial-card__avatar--placeholder"
-              >
-                5
+              <div class="testimonial-card">
+                <div
+                  class="testimonial-card__avatar"
+                  style="
+                    background-image: url(&quot;../assets/images/testimonials/avatar-02.png&quot;);
+                  "
+                ></div>
+                <p>學員見證 2</p>
               </div>
-              <p>學員見證 5</p>
+              <div class="testimonial-card">
+                <div
+                  class="testimonial-card__avatar"
+                  style="
+                    background-image: url(&quot;../assets/images/testimonials/avatar-03.png&quot;);
+                  "
+                ></div>
+                <p>學員見證 3</p>
+              </div>
+              <div class="testimonial-card">
+                <div
+                  class="testimonial-card__avatar testimonial-card__avatar--placeholder"
+                >
+                  4
+                </div>
+                <p>學員見證 4</p>
+              </div>
+              <div class="testimonial-card">
+                <div
+                  class="testimonial-card__avatar testimonial-card__avatar--placeholder"
+                >
+                  5
+                </div>
+                <p>學員見證 5</p>
+              </div>
             </div>
+            <a href="#testimonials-full" class="btn btn-outline btn--green"
+              >更多見證</a
+            >
           </div>
-          <a href="#testimonials-full" class="btn btn-outline btn--green"
-            >更多見證</a
-          >
         </div>
       </section>
+
+      <!-- 學員見證與五個理由之間的波浪分隔（延續上方漸層色系） -->
+      <svg
+        class="wave-divider"
+        width="100%"
+        height="60px"
+        viewBox="0 0 100 50"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient
+            id="grad-testimonials-bottom"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="0%"
+          >
+            <stop offset="0%" stop-color="#7c68b6" />
+            <stop offset="35%" stop-color="#9e63d2" />
+            <stop offset="70%" stop-color="#ff8ac6" />
+            <stop offset="100%" stop-color="#ffd1f2" />
+          </linearGradient>
+        </defs>
+        <path
+          d="M0,40 
+         Q 25,5 50,15 
+         Q 75,25 100,40 
+         L100,0 
+         L0,0 
+         Z"
+          fill="url(#grad-testimonials-bottom)"
+        />
+      </svg>
 
       <!-- 選擇神話的五個理由 -->
       <section class="section section-reasons">
         <div class="container">
-          <h2 class="section-title">選擇神話的五個理由</h2>
+          <h2
+            class="section-title section-title--decor"
+            data-en="Myth Korean"
+          >
+            選擇神話的五個理由
+          </h2>
           <div class="reasons-list">
             <div class="reason-item">
               <span class="reason-num">1</span> 理由一
@@ -309,10 +461,49 @@
         </div>
       </section>
 
+      <!-- 五個理由與精選課程輪播之間的波浪分隔（向下吃 1px 消除白線） -->
+      <svg
+        class="wave-divider wave-divider--offset-down"
+        width="100%"
+        height="60px"
+        viewBox="0 0 100 50"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient
+            id="grad-featured-top"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="0%"
+          >
+            <stop offset="0%" stop-color="#7c68b6" />
+            <stop offset="35%" stop-color="#9e63d2" />
+            <stop offset="70%" stop-color="#ff8ac6" />
+            <stop offset="100%" stop-color="#ffd1f2" />
+          </linearGradient>
+        </defs>
+        <path
+          d="M0,10 
+             Q 25,45 50,35 
+             Q 75,25 100,10 
+             L100,50 
+             L0,50 
+             Z"
+          fill="url(#grad-featured-top)"
+        />
+      </svg>
+
       <!-- 精選課程輪播（5個） -->
       <section class="section section-featured-carousel">
         <div class="container">
-          <h2 class="section-title">精選課程</h2>
+          <h2
+            class="section-title section-title--decor section-title--on-gradient"
+            data-en="추천 강의"
+          >
+            精選課程
+          </h2>
           <div class="featured-carousel">
             <div class="featured-track">
               <div class="featured-slide">
@@ -341,6 +532,40 @@
           <a href="#all-courses" class="btn btn-primary">所有課程</a>
         </div>
       </section>
+
+      <!-- 精選課程輪播與頁尾之間的波浪分隔 -->
+      <svg
+        class="wave-divider"
+        width="100%"
+        height="60px"
+        viewBox="0 0 100 50"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient
+            id="grad-featured-bottom"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="0%"
+          >
+            <stop offset="0%" stop-color="#7c68b6" />
+            <stop offset="35%" stop-color="#9e63d2" />
+            <stop offset="70%" stop-color="#ff8ac6" />
+            <stop offset="100%" stop-color="#ffd1f2" />
+          </linearGradient>
+        </defs>
+        <path
+          d="M0,40 
+         Q 25,5 50,15 
+         Q 75,25 100,40 
+         L100,0 
+         L0,0 
+         Z"
+          fill="url(#grad-featured-bottom)"
+        />
+      </svg>
     </main>
 
     <!-- 點我試聽：右下角固定 -->

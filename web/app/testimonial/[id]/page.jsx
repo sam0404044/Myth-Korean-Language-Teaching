@@ -33,7 +33,10 @@ export default function TestimonialPage({ params }) {
             </div>
             {t.courseRecommend && (
               <p className="testimonial-detail__course">
-                推薦課程：<Link href="/courses">{t.courseRecommend}</Link>
+                推薦課程：
+                <Link href="/courses" className="btn btn-outline btn--small">
+                  {t.courseRecommend}
+                </Link>
               </p>
             )}
             <p><Link href="/testimonials">← 返回學員見證</Link></p>

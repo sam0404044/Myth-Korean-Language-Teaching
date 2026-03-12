@@ -17,7 +17,7 @@ export default function HomePage() {
           />
         </picture>
         <div className="hero-overlay hero-overlay--light">
-          <h1>神話韓語</h1>
+          <h1>神話韓語 <span style={{ color: 'red' }}>!</span></h1>
           <p>與韓語一起，從這裡開始</p>
           <div className="hero-cta">
             <Link href="/news" className="btn btn-hero">最新消息</Link>
