@@ -3,29 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>購物車 - 神話韓語</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>付款結果 - 神話韓語</title>
+  <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="header-inner">
       <a href="index.html" class="logo">神話韓語</a>
-      <div class="search-wrap search-wrap-mobile">
-        <input type="search" class="search-input" placeholder="搜尋課程、文章" aria-label="搜尋" />
-        <button type="button" class="search-btn" aria-label="搜尋">🔍</button>
-      </div>
       <nav class="nav-menu">
         <ul class="nav-list nav-before-login">
           <li><a href="login.html">會員登入</a></li>
-          <li><a href="about.html">關於我們</a></li>
-          <li><a href="courses.html">課程列表</a></li>
-          <li><a href="news.html">最新消息</a></li>
-          <li><a href="testimonials.html">學員見證</a></li>
+          <li><a href="member.html">會員中心</a></li>
         </ul>
-        <div class="nav-actions">
-          <div class="search-wrap"><input type="search" class="search-input" placeholder="搜尋課程、文章" /><button type="button" class="search-btn">🔍</button></div>
-          <a href="cart.html" class="cart-link">🛒</a>
-        </div>
+        <div class="nav-actions"><a href="cart.html" class="cart-link">🛒</a></div>
       </nav>
       <button type="button" class="mobile-menu-btn" aria-label="選單">☰</button>
     </div>
@@ -33,24 +23,18 @@
 
   <main class="page-main">
     <section class="section">
-      <div class="container">
-        <h1 class="page-title">購物車</h1>
-        <p class="cart-hint">未登入時請導向會員登入；登入後顯示購物車內容。越簡單越好。</p>
-        <div class="cart-list">
-          <div class="cart-item">
-            <div class="cart-item__img"></div>
-            <div class="cart-item__info">
-              <h3>課程範例 1</h3>
-              <p class="cart-item__price">NT$ 1,500</p>
-              <button type="button" class="btn btn--small">移除</button>
-            </div>
-          </div>
+      <div class="container container--narrow">
+        <h1 class="page-title">付款結果</h1>
+        <div class="payment-result payment-result--success">
+          <p class="payment-result__msg">付款成功！權限已開通。</p>
+          <p><a href="member.html#my-courses" class="btn btn-primary">前往我的課程</a></p>
+          <p><a href="course-play.html">進入播放頁</a></p>
         </div>
-        <div class="cart-footer">
-          <p class="cart-total">合計：NT$ 1,500</p>
-          <a href="checkout.html" class="btn btn-primary">選擇付款方式並結帳</a>
+        <div class="payment-result payment-result--fail" hidden>
+          <p class="payment-result__msg">付款失敗或已取消。</p>
+          <p><a href="checkout.html" class="btn btn-primary">重新付款</a></p>
         </div>
-        <p class="section-hint">購物車資料與結帳流程需串接後端/金流 API。</p>
+        <p class="section-hint">成功/失敗狀態需由金流回調或後端查詢訂單狀態決定，此頁為版型。</p>
       </div>
     </section>
   </main>
@@ -63,9 +47,7 @@
       </div>
       <div class="footer-info">
         <p>@colajp.com</p>
-        <p>地址：（待填寫）</p>
         <p>電話：075507717</p>
-        <p>（待確認）股份有限公司 附設神話韓語補習班</p>
       </div>
     </div>
   </footer>
@@ -88,6 +70,6 @@
       </div>
     </div>
   </div>
-  <script src="main.js"></script>
+  <script src="../main.js"></script>
 </body>
 </html>

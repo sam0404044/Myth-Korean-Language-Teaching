@@ -56,6 +56,24 @@
 
   renderNavByLogin();
 
+  // ===== 登入表單：避免 POST 造成 405，暫時帳號 AAA/123 導向 React 後台
+  const authForm = document.querySelector('.auth-form');
+  if (authForm && document.getElementById('login-email')) {
+    authForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var emailInput = document.getElementById('login-email');
+      var passwordInput = document.getElementById('login-password');
+      var account = (emailInput && emailInput.value) ? emailInput.value.trim() : '';
+      var password = (passwordInput && passwordInput.value) ? passwordInput.value : '';
+      if (account === 'AAA' && password === '123') {
+        // 靜態站／GitHub Pages：導向後台示範頁，避免 POST 造成 405
+        window.location.href = 'admin.html';
+        return;
+      }
+      alert('此為靜態示範頁面，尚無登入功能。\n\n暫時後台入口：帳號 AAA / 密碼 123');
+    });
+  }
+
   // ===== 精選課程輪播（前後按鈕）
   if (featuredTrack && (carouselPrev || carouselNext)) {
     const slides = featuredTrack.querySelectorAll('.featured-slide');

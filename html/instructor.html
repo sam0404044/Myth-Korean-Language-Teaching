@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>付款結果 - 神話韓語</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>教師介紹 - 神話韓語</title>
+  <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
   <header class="site-header">
@@ -13,7 +13,8 @@
       <nav class="nav-menu">
         <ul class="nav-list nav-before-login">
           <li><a href="login.html">會員登入</a></li>
-          <li><a href="member.html">會員中心</a></li>
+          <li><a href="about.html">關於我們</a></li>
+          <li><a href="instructors.html">師資介紹</a></li>
         </ul>
         <div class="nav-actions"><a href="cart.html" class="cart-link">🛒</a></div>
       </nav>
@@ -24,17 +25,17 @@
   <main class="page-main">
     <section class="section">
       <div class="container container--narrow">
-        <h1 class="page-title">付款結果</h1>
-        <div class="payment-result payment-result--success">
-          <p class="payment-result__msg">付款成功！權限已開通。</p>
-          <p><a href="member.html#my-courses" class="btn btn-primary">前往我的課程</a></p>
-          <p><a href="course-play.html">進入播放頁</a></p>
+        <p><a href="instructors.html">← 師資列表</a></p>
+        <div class="instructor-detail">
+          <div class="instructor-detail__avatar"></div>
+          <h1 class="page-title">教師姓名（由 API/後台帶入）</h1>
+          <h2>教師背景</h2>
+          <p>（由後台提供）</p>
+          <h2>教學特色</h2>
+          <p>（由後台提供）</p>
+          <h2>授課課程推薦</h2>
+          <p><a href="course-detail.html">課程 A</a>、<a href="course-detail.html">課程 B</a>（由後台綁定）</p>
         </div>
-        <div class="payment-result payment-result--fail" hidden>
-          <p class="payment-result__msg">付款失敗或已取消。</p>
-          <p><a href="checkout.html" class="btn btn-primary">重新付款</a></p>
-        </div>
-        <p class="section-hint">成功/失敗狀態需由金流回調或後端查詢訂單狀態決定，此頁為版型。</p>
       </div>
     </section>
   </main>
@@ -70,6 +71,6 @@
       </div>
     </div>
   </div>
-  <script src="main.js"></script>
+  <script src="../main.js"></script>
 </body>
 </html>

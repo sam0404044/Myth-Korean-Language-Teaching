@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>課程詳情 - 神話韓語</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>最新消息 - 神話韓語</title>
+  <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
   <header class="site-header">
@@ -32,34 +32,31 @@
   </header>
 
   <main class="page-main">
-    <section class="section course-detail">
+    <section class="section">
       <div class="container">
-        <div class="course-detail__wrap">
-          <div class="course-detail__main">
-            <div class="course-detail__cover"></div>
-            <h1 class="page-title">課程標題（由 API/後台帶入）</h1>
-            <p class="course-detail__price"><span class="course-detail__price--old">NT$ 2,000</span> NT$ 1,500</p>
-            <p class="course-detail__desc">課程介紹、與我相遇、購買須知等（由後台提供）。</p>
-            <ul class="course-detail__tabs">
-              <li><a href="#intro">課程介紹</a></li>
-              <li><a href="#outline">課程章節大綱</a></li>
-              <li><a href="#feedback">學員回饋</a></li>
-            </ul>
-            <div id="intro" class="course-detail__block"><h2>課程介紹</h2><p>（內容由後台/API 提供。）</p></div>
-            <div id="outline" class="course-detail__block"><h2>課程章節大綱</h2><p>（章節列表由後台/API 提供。）</p></div>
-            <div id="feedback" class="course-detail__block"><h2>學員回饋</h2><p>（由後台/API 提供。）</p></div>
-          </div>
-          <aside class="course-detail__aside">
-            <div class="course-detail__card">
-              <p class="course-detail__price"><span class="course-detail__price--old">NT$ 2,000</span> NT$ 1,500</p>
-              <p class="course-detail__pack">包課方案（由後台提供）</p>
-              <a href="plans.html" class="btn btn-primary btn--block">馬上購買</a>
-              <button type="button" class="btn btn-outline btn--block">加入購物車</button>
-              <a href="free-trial.html" class="btn btn-hero--outline btn--block">試看課程</a>
-              <p class="course-detail__hint">倒數器、截止日等需後端或前端計時。</p>
-            </div>
-          </aside>
+        <h1 class="page-title section-title--green">最新消息</h1>
+        <p class="section-desc">教學文章、FB/IG 文章；分類與標籤由後台提供。</p>
+        <div class="article-grid">
+          <article class="article-card">
+            <a href="article.html?id=1"><div class="article-placeholder">1</div><h3>文章標題 1</h3><p class="article-meta">日期</p></a>
+          </article>
+          <article class="article-card">
+            <a href="article.html?id=2"><div class="article-placeholder">2</div><h3>文章標題 2</h3><p class="article-meta">日期</p></a>
+          </article>
+          <article class="article-card">
+            <a href="article.html?id=3"><div class="article-placeholder">3</div><h3>文章標題 3</h3><p class="article-meta">日期</p></a>
+          </article>
+          <article class="article-card">
+            <a href="article.html?id=4"><div class="article-placeholder">4</div><h3>文章標題 4</h3><p class="article-meta">日期</p></a>
+          </article>
+          <article class="article-card">
+            <a href="article.html?id=5"><div class="article-placeholder">5</div><h3>文章標題 5</h3><p class="article-meta">日期</p></a>
+          </article>
+          <article class="article-card">
+            <a href="article.html?id=6"><div class="article-placeholder">6</div><h3>文章標題 6</h3><p class="article-meta">日期</p></a>
+          </article>
         </div>
+        <p class="section-hint">文章列表與內頁需由後台/API 提供。</p>
       </div>
     </section>
   </main>
@@ -72,9 +69,7 @@
       </div>
       <div class="footer-info">
         <p>@colajp.com</p>
-        <p>地址：（待填寫）</p>
         <p>電話：075507717</p>
-        <p>（待確認）股份有限公司 附設神話韓語補習班</p>
       </div>
     </div>
   </footer>
@@ -97,6 +92,6 @@
       </div>
     </div>
   </div>
-  <script src="main.js"></script>
+  <script src="../main.js"></script>
 </body>
 </html>

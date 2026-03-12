@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>師資介紹 - 神話韓語</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>後台入口 - 神話韓語</title>
+  <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
   <header class="site-header">
@@ -33,25 +33,10 @@
 
   <main class="page-main">
     <section class="section">
-      <div class="container">
-        <h1 class="page-title section-title--green">師資介紹</h1>
-        <p class="section-desc">教師照片與簡介（由後台師資管理提供）</p>
-        <div class="instructor-grid">
-          <article class="instructor-card">
-            <a href="instructor.html?id=1">
-              <div class="instructor-card__avatar"></div>
-              <h3>教師姓名 1</h3>
-              <p>簡介摘要（由後台提供）</p>
-            </a>
-          </article>
-          <article class="instructor-card">
-            <a href="instructor.html?id=2">
-              <div class="instructor-card__avatar"></div>
-              <h3>教師姓名 2</h3>
-              <p>簡介摘要（由後台提供）</p>
-            </a>
-          </article>
-        </div>
+      <div class="container container--narrow">
+        <h1 class="page-title section-title--green">後台入口（示範）</h1>
+        <p>您已使用暫時帳號 AAA / 123 進入此頁面。完整後台功能請在專案 <code>web</code> 資料夾執行 <code>npm run dev</code> 後，開啟 <a href="http://localhost:3000/admin">http://localhost:3000/admin</a> 使用。</p>
+        <p><a href="index.html" class="btn btn-primary">返回首頁</a></p>
       </div>
     </section>
   </main>
@@ -59,12 +44,17 @@
   <footer class="site-footer">
     <div class="footer-inner container">
       <div class="footer-top">
-        <div class="footer-links"><a href="#" class="social-link">Facebook</a><a href="#" class="social-link">Instagram</a></div>
+        <div class="footer-links">
+          <a href="#" class="social-link">Facebook</a>
+          <a href="#" class="social-link">Instagram</a>
+        </div>
         <button type="button" class="footer-legal-btn" data-modal="legal">服務使用條款及隱私權聲明</button>
       </div>
       <div class="footer-info">
         <p>@colajp.com</p>
+        <p>地址：（待填寫）</p>
         <p>電話：075507717</p>
+        <p>（待確認）股份有限公司 附設神話韓語補習班</p>
       </div>
     </div>
   </footer>
@@ -87,6 +77,6 @@
       </div>
     </div>
   </div>
-  <script src="main.js"></script>
+  <script src="../main.js"></script>
 </body>
 </html>

@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>會員登入 - 神話韓語</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>會員註冊 - 神話韓語</title>
+    <link rel="stylesheet" href="../styles.css" />
   </head>
   <body>
     <header class="site-header">
@@ -22,32 +22,8 @@
             <li><a href="news.html">最新消息</a></li>
             <li><a href="testimonials.html">學員見證</a></li>
           </ul>
-          <ul class="nav-list nav-after-login is-hidden">
-            <li class="nav-member">
-              <button type="button" class="member-name-btn" aria-expanded="false" aria-haspopup="true">
-                <span class="member-name-text">會員名稱</span>
-                <span class="dropdown-arrow">▼</span>
-              </button>
-              <div class="member-dropdown">
-                <div class="dropdown-section">
-                  <h4>會員中心</h4>
-                  <a href="member.html">會員資料</a>
-                  <a href="member.html#my-courses">我的課程</a>
-                  <a href="member.html#account">帳號設定</a>
-                  <a href="member.html#orders">購買紀錄</a>
-                  <a href="member.html#coins">神話幣</a>
-                  <a href="member.html#scores">測驗成績</a>
-                </div>
-                <a href="free-trial.html" class="dropdown-item">免費體驗</a>
-                <a href="#" class="dropdown-item logout">會員登出</a>
-              </div>
-            </li>
-          </ul>
           <div class="nav-actions">
-            <div class="search-wrap">
-              <input type="search" class="search-input" placeholder="搜尋課程、文章" aria-label="搜尋" />
-              <button type="button" class="search-btn" aria-label="搜尋">🔍</button>
-            </div>
+            <div class="search-wrap"><input type="search" class="search-input" placeholder="搜尋課程、文章" aria-label="搜尋" /><button type="button" class="search-btn" aria-label="搜尋">🔍</button></div>
             <a href="cart.html" class="cart-link" aria-label="購物車">🛒</a>
           </div>
         </nav>
@@ -58,28 +34,26 @@
     <main class="page-main">
       <section class="section auth-section">
         <div class="container container--narrow">
-          <h1 class="page-title">會員登入</h1>
+          <h1 class="page-title">建立新帳號</h1>
           <form class="auth-form" action="#" method="post">
             <div class="form-group">
-              <label for="login-email">Email</label>
-              <input id="login-email" type="text" name="email" required placeholder="請輸入 Email" />
+              <label for="reg-name">姓名</label>
+              <input id="reg-name" type="text" name="name" required placeholder="請輸入姓名" />
             </div>
             <div class="form-group">
-              <label for="login-password">密碼</label>
-              <input id="login-password" type="password" name="password" required placeholder="請輸入密碼" />
+              <label for="reg-email">Email</label>
+              <input id="reg-email" type="email" name="email" required placeholder="請輸入 Email" />
             </div>
-            <button type="submit" class="btn btn-primary btn--block">登入</button>
-            <p class="auth-form__note">
-              <a href="forgot-password.html">忘記密碼？</a>
-            </p>
-            <hr class="auth-form__divider" />
-            <p class="auth-form__note">
-              <!-- 需手動串接 Google OAuth -->
-              <button type="button" class="btn btn-outline btn--block" disabled>Google 快速登入（待串接）</button>
-            </p>
-            <p class="auth-form__note">
-              還沒有帳號？<a href="register.html">立即註冊</a>
-            </p>
+            <div class="form-group">
+              <label for="reg-password">密碼</label>
+              <input id="reg-password" type="password" name="password" required placeholder="請設定密碼" />
+            </div>
+            <div class="form-group">
+              <label for="reg-phone">電話</label>
+              <input id="reg-phone" type="tel" name="phone" placeholder="選填" />
+            </div>
+            <button type="submit" class="btn btn-primary btn--block">註冊</button>
+            <p class="auth-form__note">已有帳號？<a href="login.html">立即登入</a></p>
           </form>
         </div>
       </section>
@@ -117,12 +91,10 @@
             <a href="#trade">用戶交易條款</a>
             <a href="#refund">退費及退換貨須知</a>
           </nav>
-          <div class="legal-content">
-            <p>此處可放置各條款內容，或連結至獨立頁面。</p>
-          </div>
+          <div class="legal-content"><p>此處可放置各條款內容。</p></div>
         </div>
       </div>
     </div>
-    <script src="main.js"></script>
+    <script src="../main.js"></script>
   </body>
 </html>

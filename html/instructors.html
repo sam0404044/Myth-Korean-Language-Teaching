@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>方案訂閱 - 神話韓語</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>師資介紹 - 神話韓語</title>
+  <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
   <header class="site-header">
@@ -32,33 +32,25 @@
   </header>
 
   <main class="page-main">
-    <section class="section section--pastel">
+    <section class="section">
       <div class="container">
-        <h1 class="page-title section-title--green">方案介紹</h1>
-        <p class="section-desc">月訂閱 / 季訂閱 / 年訂閱（照可樂方案，實際由後台管理）</p>
-        <div class="plans-grid">
-          <div class="plan-card">
-            <h3>月訂閱</h3>
-            <p class="plan-price">NT$ XXX/月</p>
-            <p class="plan-desc">權益說明（由後台提供）</p>
-            <a href="checkout.html?plan=monthly" class="btn btn-primary btn--block">前往結帳</a>
-          </div>
-          <div class="plan-card plan-card--featured">
-            <h3>季訂閱</h3>
-            <p class="plan-price">NT$ XXX/季</p>
-            <p class="plan-desc">權益說明（由後台提供）</p>
-            <a href="checkout.html?plan=quarterly" class="btn btn-primary btn--block">前往結帳</a>
-          </div>
-          <div class="plan-card">
-            <h3>年訂閱</h3>
-            <p class="plan-price">NT$ XXX/年</p>
-            <p class="plan-desc">權益說明（由後台提供）</p>
-            <a href="checkout.html?plan=yearly" class="btn btn-primary btn--block">前往結帳</a>
-          </div>
-        </div>
-        <div class="plans-faq">
-          <h2>常見問題 FAQ</h2>
-          <p>（由後台或靜態內容提供。）</p>
+        <h1 class="page-title section-title--green">師資介紹</h1>
+        <p class="section-desc">教師照片與簡介（由後台師資管理提供）</p>
+        <div class="instructor-grid">
+          <article class="instructor-card">
+            <a href="instructor.html?id=1">
+              <div class="instructor-card__avatar"></div>
+              <h3>教師姓名 1</h3>
+              <p>簡介摘要（由後台提供）</p>
+            </a>
+          </article>
+          <article class="instructor-card">
+            <a href="instructor.html?id=2">
+              <div class="instructor-card__avatar"></div>
+              <h3>教師姓名 2</h3>
+              <p>簡介摘要（由後台提供）</p>
+            </a>
+          </article>
         </div>
       </div>
     </section>
@@ -95,6 +87,6 @@
       </div>
     </div>
   </div>
-  <script src="main.js"></script>
+  <script src="../main.js"></script>
 </body>
 </html>
