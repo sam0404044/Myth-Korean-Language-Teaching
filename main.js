@@ -79,11 +79,18 @@
     const slides = featuredTrack.querySelectorAll('.featured-slide');
     const total = slides.length;
     let featuredIndex = 0;
-    const maxIndex = Math.max(0, total - 5); // 一次顯示約 5 個，可依 RWD 調整
+    let maxIndex = 0;
 
     function updateFeaturedCarousel() {
-      const slideWidth = slides[0]?.offsetWidth || 200;
+      if (!slides.length) return;
+      const carouselViewport = featuredTrack.parentElement; // .featured-carousel
+      const slideWidth = slides[0].offsetWidth || 200;
       const gap = 20;
+      const viewportWidth = carouselViewport.clientWidth || 960;
+      const visibleCount = Math.max(1, Math.floor((viewportWidth + gap) / (slideWidth + gap)));
+      maxIndex = Math.max(0, total - visibleCount);
+      // 保證目前索引在範圍內
+      if (featuredIndex > maxIndex) featuredIndex = maxIndex;
       const offset = -(featuredIndex * (slideWidth + gap));
       featuredTrack.style.transform = 'translateX(' + offset + 'px)';
     }

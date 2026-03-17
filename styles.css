@@ -312,6 +312,8 @@ ul {
   inset: 0;
   margin: 0;
   padding: 0;
+  /* 避免背景圖層擋住可點擊元素（例如向下箭頭） */
+  pointer-events: none;
 }
 .hero-bg img {
   width: 100%;
@@ -334,7 +336,8 @@ ul {
 }
 .hero-overlay--light {
   color: var(--color-text);
-  background: linear-gradient(to right, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.4) 50%, transparent 70%);
+  /* 移除白色漸層覆蓋，改為透明背景，直接顯示 HERO 背景圖 */
+  background: transparent;
 }
 .hero-overlay h1 {
   margin: 0 0 8px;
@@ -356,6 +359,7 @@ ul {
   padding: 12px 24px;
   border-radius: 999px;
   font-weight: 600;
+  font-size: 0.95rem;
   background: var(--green-title);
   color: var(--color-white);
   border: none;
@@ -370,44 +374,37 @@ ul {
 .hero-scroll-indicator {
   position: absolute;
   left: 50%;
-  bottom: 32px;
+  bottom: 52px; /* 往上 20px */
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 0;
   text-decoration: none;
+  z-index: 3;
+  pointer-events: auto;
 }
 .hero-scroll-line {
   position: relative;
-  width: 1px;
-  height: 26px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.4), rgba(255,255,255,0.9));
+  width: 3px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(124,104,182,0.2), rgba(124,104,182,1));
 }
 .hero-scroll-line::after {
   content: '';
   position: absolute;
   left: 50%;
-  bottom: -7px;
+  bottom: -10px;
   transform: translateX(-50%);
-  border-width: 7px 5px 0 5px;
+  border-width: 10px 7px 0 7px;
   border-style: solid;
-  border-color: rgba(255,255,255,0.95) transparent transparent transparent;
+  border-color: #7c68b6 transparent transparent transparent;
 }
 .hero-scroll-circle {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  border: 2px solid rgba(255,255,255,0.95);
-  box-shadow:
-    0 0 0 2px rgba(255,255,255,0.3),
-    0 2px 6px rgba(0,0,0,0.25);
+  display: none;
 }
 .hero-scroll-indicator:hover .hero-scroll-circle {
-  transform: translateY(2px);
-  box-shadow:
-    0 0 0 3px rgba(255,255,255,0.5),
-    0 4px 10px rgba(0,0,0,0.35);
+  transform: none;
 }
 .hero-scroll-indicator:hover .hero-scroll-line {
   height: 30px;
@@ -416,9 +413,33 @@ ul {
 
 @media (max-width: 768px) {
   .hero-kolanee .hero-overlay--light {
-    background: linear-gradient(to bottom, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.5) 60%, transparent);
+    /* 手機版也移除白色漸層，改為完全透明背景 */
+    background: transparent;
   }
   .hero-overlay h1 { font-size: 1.8rem; }
+}
+
+/* 桌機版：HERO 文案靠右側排列 */
+@media (min-width: 900px) {
+  .hero-overlay {
+    align-items: center;
+    text-align: center;
+    padding-right: 40px;
+    padding-left: 40px;
+    margin-left: 30px; /* 整塊略往右移動 */
+  }
+
+  .hero-overlay h1 {
+    font-size: 2.6rem;
+  }
+
+  .hero-overlay p {
+    font-size: 1.2rem;
+  }
+
+  .btn-hero {
+    font-size: 1rem;
+  }
 }
 
 /* ===== 區塊通用 ===== */
@@ -562,40 +583,34 @@ ul {
   animation: gradientFlow 4s linear infinite;
 }
 
-/* Hero 區：整體由下方淡入 */
+/* Hero 區：停用進場動畫，改為靜態呈現 */
 .hero-kolanee {
-  opacity: 0;
-  animation: heroFadeUp 0.9s ease-out 0.1s forwards;
+  opacity: 1;
 }
 
-/* 熱門課程：內容由下方滑入 */
+/* 熱門課程：停用進場動畫 */
 .section-courses {
-  opacity: 0;
-  animation: coursesSlideUp 0.85s ease-out 0.2s forwards;
+  opacity: 1;
 }
 
-/* 最新消息：整塊由左側滑入 */
+/* 最新消息：停用進場動畫 */
 .section-news {
-  opacity: 0;
-  animation: newsSlideInLeft 0.9s ease-out 0.25s forwards;
+  opacity: 1;
 }
 
-/* 學員見證：帶一點彈入效果 */
+/* 學員見證：停用進場動畫 */
 .section-testimonials {
-  opacity: 0;
-  animation: testimonialsPopIn 1s ease-out 0.3s forwards;
+  opacity: 1;
 }
 
-/* 五個理由：整區淡入往上 */
+/* 五個理由：停用進場動畫 */
 .section-reasons {
-  opacity: 0;
-  animation: reasonsFadeUp 0.9s ease-out 0.35s forwards;
+  opacity: 1;
 }
 
-/* 精選課程輪播：由下方滑入 */
+/* 精選課程輪播：停用進場動畫 */
 .section-featured-carousel {
-  opacity: 0;
-  animation: featuredSlideUp 0.9s ease-out 0.4s forwards;
+  opacity: 1;
 }
 
 /* 所有 section 背景加上淡淡的小點裝飾 */
@@ -924,6 +939,12 @@ ul {
   box-shadow: var(--shadow);
   overflow: hidden;
 }
+.article-card__img {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* 固定卡片比例 */
+  object-fit: cover;
+  display: block;
+}
 .article-placeholder {
   height: 140px;
   display: flex;
@@ -993,12 +1014,15 @@ ul {
 .slide-placeholder {
   height: 200px;
   background: rgba(255, 255, 255, 0.14);
-  border-radius: var(--radius);
+  border-radius: 24px;
   box-shadow: var(--shadow);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fbe9ff;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .carousel-prev,
 .carousel-next {
@@ -2246,7 +2270,7 @@ ul {
   border: var(--bubble-border);
   box-shadow: var(--bubble-shadow), var(--bubble-inner-shadow-1);
   overflow: hidden;
-  animation: bubbleFloat 5s ease-in-out infinite;
+  /* 停用浮動動畫，改為靜態泡泡 */
   transition: all 0.3s ease;
 }
 
